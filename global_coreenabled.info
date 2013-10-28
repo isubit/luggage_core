@@ -4,6 +4,7 @@ core = 7.x
 package = Features
 version = 7.x-1.0
 project = global_coreenabled
+github = https://raw.github.com/ISUITC/global_coreenabled/master/global_coreenabled.info
 dependencies[] = block
 dependencies[] = contextual
 dependencies[] = file
