@@ -16,7 +16,6 @@ function global_coreenabled_user_default_permissions() {
     'roles' => array(
       'authenticated user' => 'authenticated user',
       'content editor' => 'content editor',
-      'people user' => 'people user',
       'site admin' => 'site admin',
     ),
     'module' => 'admin_menu',
