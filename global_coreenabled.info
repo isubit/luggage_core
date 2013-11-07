@@ -33,4 +33,5 @@ features[user_permission][] = search content
 features[user_permission][] = use advanced search
 features[user_permission][] = view own unpublished content
 features[variable][] = admin_theme
+features[variable][] = clean_url
 github = https://raw.github.com/ISUITC/global_coreenabled/master/global_coreenabled.info
