@@ -22,8 +22,8 @@ function global_coreenabled_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'bartik' => array(
-        'region' => 'help',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
       ),
@@ -48,10 +48,10 @@ function global_coreenabled_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'bartik' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'bartik',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'suitcase' => array(
         'region' => '',
@@ -74,8 +74,8 @@ function global_coreenabled_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'bartik' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
       ),
