@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * global_coreenabled.features.user_permission.inc
+ * luggage_core.features.user_permission.inc
  */
 
 /**
  * Implements hook_user_default_permissions().
  */
-function global_coreenabled_user_default_permissions() {
+function luggage_core_user_default_permissions() {
   $permissions = array();
 
   // Exported permission: 'access administration menu'.

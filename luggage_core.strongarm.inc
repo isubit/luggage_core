@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * global_coreenabled.strongarm.inc
+ * luggage_core.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function global_coreenabled_strongarm() {
+function luggage_core_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
