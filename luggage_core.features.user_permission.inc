@@ -15,19 +15,8 @@ function luggage_core_user_default_permissions() {
     'name' => 'access administration menu',
     'roles' => array(
       'authenticated user' => 'authenticated user',
-      'content editor' => 'content editor',
-      'site admin' => 'site admin',
     ),
     'module' => 'admin_menu',
-  );
-
-  // Exported permission: 'access administration pages'.
-  $permissions['access administration pages'] = array(
-    'name' => 'access administration pages',
-    'roles' => array(
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'system',
   );
 
   // Exported permission: 'access content'.
