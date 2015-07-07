@@ -15,16 +15,6 @@ function luggage_core_update_projects_alter(&$projects) {
 }
 
 /**
- * Implements hook_init()
- */
-function luggage_core_init() {
-  // init luggage versions
-  foreach (glob(DRUPAL_ROOT . "/*_VERSION.php") as $filename) {
-    require_once($filename);
-  }
-}
-
-/**
  * Implements hook_requirements()
  * @param $phase
  * @return array
@@ -32,13 +22,46 @@ function luggage_core_init() {
 function luggage_core_requirements($phase) {
   if($phase == 'runtime') {
     $requirements = array();
-    foreach (glob(DRUPAL_ROOT . "/*_VERSION.php") as $filename) {
-      $var = trim(substr(basename($filename), 0, -4));
-      $requirements[$var] = array(
-        'title' => $var,
-        'value' => constant($var),
+    foreach (_luggage_core_get_luggage_versions() as $product => $version) {
+      $requirements[$product] = array(
+        'title' => $product,
+        'value' => $version,
       );
     }
     return $requirements;
+  }
+}
+
+/*
+ * @param $product - Optional product identifier.
+ * @return array - array of version numbers keyed by product
+ * @return string - if $product is defined returns a string for the identfied product
+ * @return FALSE - if $product not found
+ */
+function _luggage_core_get_luggage_versions($product = "") {
+  $versions = array();
+
+  foreach (glob(DRUPAL_ROOT . "/*_VERSION.php") as $filename) {
+    require_once($filename);
+    $var = trim(substr(basename($filename), 0, -12));
+    if(isset($version)) {
+      $versions[$var] = $version;
+    }
+  }
+
+  if(!empty($product)) {
+    if(isset($versions[$product])) {
+      return $versions[$product];
+    }
+    else {
+      return FALSE;
+    }
+  }
+
+  if(!empty($versions)) {
+    return $versions;
+  }
+  else {
+    return FALSE;
   }
 }
