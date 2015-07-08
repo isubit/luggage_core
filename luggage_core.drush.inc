@@ -8,7 +8,11 @@ function luggage_core_drush_command() {
     'description' => "Get the Luggage Version numbers",
     'aliases' => array('lv'),
     'options' => array(
-      'product' => "The product you want the version for Eg 'LUGGAGE' or 'LUGGAGE_ISU'",
+      'product' => "The product you want the version for Eg --product='LUGGAGE' or --product='LUGGAGE_ISU'",
+    ),
+    'examples' => array(
+      'drush luggage-versions' => "Prints all the products and versions separated by newlines",
+      'drush luggage-versions --product=LUGGAGE' => "Prints just the version number for the LUGGAGE product",
     ),
   );
 
