@@ -65,3 +65,24 @@ function _luggage_core_get_luggage_versions($product = "") {
     return FALSE;
   }
 }
+
+/*
+ * Implements hook_menu()
+ */
+function luggage_core_menu() {
+  // Implement a default 404 page.
+  $items['luggage-default-404-page'] = array(
+    'title' => t('Page not found'),
+    'page callback' => 'luggage_core_404_callback',
+    'access arguments' => array('access content'),
+  );
+
+  return $items;
+}
+
+/*
+ * Callback for luggage-default-404-page in luggage_core_menu
+ */
+function luggage_core_404_callback() {
+  return t('The requested page "@path" could not be found.', array('@path' => request_uri()));
+}
