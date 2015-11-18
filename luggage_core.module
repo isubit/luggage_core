@@ -86,3 +86,12 @@ function luggage_core_menu() {
 function luggage_core_404_callback() {
   return t('The requested page "@path" could not be found.', array('@path' => request_uri()));
 }
+
+/**
+ * Implements HOOK_form_FORMID_alter().
+ */
+function luggage_core_form_system_site_information_settings_alter(&$form) {
+  // Add some documentation to the site-information form to show the default
+  // value for luggage-default-404-page.
+  $form['error_page']['site_404']['#description'] .= t(' The default value in Luggage is luggage-default-404-page.');
+}
