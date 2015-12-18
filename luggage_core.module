@@ -15,12 +15,12 @@ function luggage_core_update_projects_alter(&$projects) {
 }
 
 /**
- * Implements hook_requirements()
+ * Implements hook_requirements().
  * @param $phase
  * @return array
  */
 function luggage_core_requirements($phase) {
-  if($phase == 'runtime') {
+  if ($phase == 'runtime') {
     $requirements = array();
     foreach (_luggage_core_get_luggage_versions() as $product => $version) {
       $requirements[$product] = array(
@@ -33,24 +33,24 @@ function luggage_core_requirements($phase) {
 }
 
 /*
- * @param $product - Optional product identifier.
- * @return array - array of version numbers keyed by product
- * @return string - if $product is defined returns a string for the identfied product
- * @return FALSE - if $product not found
+ * @param $product - Optional product identifier
+ * @return array - Array of version numbers keyed by product
+ * @return string - If $product is defined returns the identified product
+ * @return FALSE - If $product not found
  */
-function _luggage_core_get_luggage_versions($product = "") {
+function _luggage_core_get_luggage_versions($product = '') {
   $versions = array();
 
   foreach (glob(DRUPAL_ROOT . "/*_VERSION.php") as $filename) {
     require_once($filename);
     $var = trim(substr(basename($filename), 0, -12));
-    if(isset($version)) {
+    if (isset($version)) {
       $versions[$var] = $version;
     }
   }
 
-  if(!empty($product)) {
-    if(isset($versions[$product])) {
+  if (!empty($product)) {
+    if (isset($versions[$product])) {
       return $versions[$product];
     }
     else {
@@ -58,7 +58,7 @@ function _luggage_core_get_luggage_versions($product = "") {
     }
   }
 
-  if(!empty($versions)) {
+  if (!empty($versions)) {
     return $versions;
   }
   else {
@@ -67,10 +67,10 @@ function _luggage_core_get_luggage_versions($product = "") {
 }
 
 /*
- * Implements hook_menu()
+ * Implements hook_menu().
  */
 function luggage_core_menu() {
-  // Implement a default 404 page.
+  // Implement a default 404 page so that blocks can be rendered on it.
   $items['luggage-default-404-page'] = array(
     'title' => t('Page not found'),
     'page callback' => 'luggage_core_404_callback',
@@ -81,7 +81,7 @@ function luggage_core_menu() {
 }
 
 /*
- * Callback for luggage-default-404-page in luggage_core_menu
+ * Page callback for luggage-default-404-page in luggage_core_menu().
  */
 function luggage_core_404_callback() {
   return t('The requested page "@path" could not be found.', array('@path' => request_uri()));
