@@ -102,7 +102,7 @@ function luggage_core_form_system_site_information_settings_alter(&$form) {
  * configuration page.
  */
 function luggage_core_form_taxonomy_overview_terms_alter(&$form, &$form_state) {
-  if ($form['actions']['reset_alphabetical']) {
+  if (isset($form['actions']['reset_alphabetical'])) {
     unset($form['actions']['reset_alphabetical']);
   }
 }
