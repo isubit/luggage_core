@@ -3,7 +3,6 @@ luggage_core
 
 Core modules that should globally be enabled on production
 -
-* Administration menu
 * Block
 * Contextual Links
 * File
@@ -20,6 +19,7 @@ Core modules that should globally be enabled on production
 
 Modules that should globally be enabled on production
 -
+* Administration menu
 * Chaos Tools
 * Features
 * Strongarm
@@ -28,3 +28,9 @@ Strongarm held variables
 -
 * Admin theme -> seven
 * clean URL -> True
+
+.install file held variables
+-
+* site_404 -> luggage-default-404-page
+
+Also sets some user permissions and provides a default 404 page.
