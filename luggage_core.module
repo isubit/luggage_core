@@ -75,6 +75,7 @@ function luggage_core_menu() {
     'title' => t('Page not found'),
     'page callback' => 'luggage_core_404_callback',
     'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
   );
 
   return $items;
